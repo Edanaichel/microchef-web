@@ -32,14 +32,14 @@ Use an H.264 MP4 without an audio track for the smallest, most compatible file.
 Replace the `href="#"` on `.app-store-button` in `app/page.tsx` with the final
 App Store URL.
 
-## The cinema cut (`/cinema`)
+## The cinema cut (homepage)
 
-A separate, self-contained concept at `http://localhost:3000/cinema`: a cold
-open, six acts, credits, and a post-credits sting for the unlockable themes.
-Everything lives in `app/cinema/` and `components/cinema/`.
+The site opens on the cinematic cut at `http://localhost:3000`. Styles live in
+`app/cinema/cinema.css`; the experience is in `components/cinema/`. `/cinema`
+redirects home.
 
-- **Logo** — the `M` in `.cin-mark` (two places in `CinemaExperience.tsx`:
-  the loader and the header). Swap the letter for your square/circle mark.
+- **Logo** — the mark in `.cin-mark` (loader and header in `CinemaExperience.tsx`).
+  Asset: `public/images/logo.webp`.
 - **Generate-tab screenshot** — replace `.cin-slot` in the Service act with the
   real image. The frame is sized for a 1179 × 2556 portrait screenshot.
 - **App Store link** — the `href="#"` on `.cin-cta`.

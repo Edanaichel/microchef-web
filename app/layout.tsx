@@ -10,9 +10,9 @@ const instrument = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Microchef — Dinner, figured out.",
+  title: "Microchef — Everything you need is already in there.",
   description:
-    "Turn what is already in your fridge into recipes built around your macros.",
+    "Photograph your spices, your equipment and your fridge. Microchef writes dinner around your macros.",
 };
 
 export default function RootLayout({

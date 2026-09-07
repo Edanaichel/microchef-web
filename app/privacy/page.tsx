@@ -11,11 +11,11 @@ export default function PrivacyPage() {
   return (
     <div className="legal">
       <header className="legal-bar">
-        <a className="legal-brand" href="/cinema">
+        <a className="legal-brand" href="/">
           <img src="/images/logo.webp" alt="" />
           Microchef
         </a>
-        <a href="/cinema">Back to the film</a>
+        <a href="/">Back to the film</a>
       </header>
 
       <main className="legal-main">

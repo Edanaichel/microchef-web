@@ -1,14 +1,5 @@
-import type { Metadata } from "next";
-import CinemaExperience from "@/components/cinema/CinemaExperience";
-import "lenis/dist/lenis.css";
-import "./cinema.css";
+import { redirect } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Microchef — Everything you need is already in there.",
-  description:
-    "Photograph your spices, your equipment and your fridge. Microchef writes dinner around your macros.",
-};
-
-export default function CinemaPage() {
-  return <CinemaExperience />;
+export default function CinemaRedirect() {
+  redirect("/");
 }
