@@ -1,0 +1,122 @@
+html:has(.legal) { scroll-behavior: auto; }
+body:has(.legal) { background: #060504; }
+body:has(.legal)::after { display: none; }
+
+.legal {
+  --ink: #060504;
+  --bone: #f2ebdd;
+  --gold: #e3b465;
+  --gold-hi: #f7e2b3;
+  --muted: rgba(242, 235, 221, 0.68);
+  min-height: 100svh;
+  background:
+    radial-gradient(70% 50% at 50% 0%, rgba(227, 180, 101, 0.08), transparent 60%),
+    #060504;
+  color: var(--bone);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+.legal-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px clamp(20px, 4vw, 72px);
+  font-size: 0.68rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.legal-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.legal-brand img {
+  width: 36px;
+  height: 36px;
+  border-radius: 22%;
+  object-fit: cover;
+}
+
+.legal-bar a:last-child {
+  color: rgba(242, 235, 221, 0.55);
+  text-decoration: none;
+}
+
+.legal-bar a:last-child:hover { color: var(--gold-hi); }
+
+.legal-main {
+  width: min(720px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 40px 0 100px;
+}
+
+.legal-kicker {
+  margin: 0 0 18px;
+  font-size: 0.64rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.legal-main h1 {
+  margin: 0;
+  font-family: var(--font-display), serif;
+  font-weight: 400;
+  font-size: clamp(2.6rem, 7vw, 5.2rem);
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+
+.legal-updated {
+  margin: 22px 0 48px;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(242, 235, 221, 0.4);
+}
+
+.legal-main h2 {
+  margin: 42px 0 14px;
+  font-family: var(--font-display), serif;
+  font-weight: 400;
+  font-size: 1.7rem;
+}
+
+.legal-main p,
+.legal-main li {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.legal-main p { margin: 0 0 16px; }
+
+.legal-main ul {
+  margin: 0 0 16px;
+  padding-left: 1.2em;
+}
+
+.legal-main li { margin: 0 0 8px; }
+
+.legal-company {
+  margin-top: 64px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(242, 235, 221, 0.1);
+  font-family: var(--font-display), serif;
+  font-size: 1.25rem;
+  color: var(--gold-hi);
+}
+
+.legal-company span {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(242, 235, 221, 0.4);
+}

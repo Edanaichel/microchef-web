@@ -1,0 +1,115 @@
+.three-page { background: var(--ink); }
+
+.three-hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 clamp(25px, 7vw, 120px);
+}
+.three-hero h1 {
+  margin: 0;
+  font-size: clamp(70px, 9.7vw, 154px);
+  font-weight: 500;
+  line-height: .77;
+  letter-spacing: -.07em;
+}
+
+.three-scroll { position: relative; }
+.three-sticky {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: var(--ink);
+}
+.three-sticky canvas { display: block; }
+
+.three-copy {
+  position: absolute;
+  z-index: 3;
+  left: clamp(25px, 7vw, 120px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: min(38vw, 480px);
+  pointer-events: none;
+}
+.three-kicker {
+  margin: 0 0 20px;
+  color: var(--acid);
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+.three-copy h2 {
+  margin: 0;
+  font-size: clamp(44px, 5vw, 78px);
+  font-weight: 500;
+  line-height: .88;
+  letter-spacing: -.055em;
+}
+.three-body {
+  margin: 26px 0 0;
+  max-width: 390px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+.three-count {
+  display: block;
+  margin-top: 32px;
+  color: #55574f;
+  font-size: 10px;
+  letter-spacing: .18em;
+}
+
+.three-rail {
+  position: absolute;
+  z-index: 3;
+  right: clamp(20px, 3vw, 46px);
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  gap: 10px;
+  justify-items: end;
+}
+.three-rail i {
+  display: block;
+  width: 26px;
+  height: 1px;
+  background: rgba(242,239,228,.25);
+  transform: scaleX(.4);
+  transform-origin: right center;
+  transition: transform .45s, background .45s;
+}
+.three-rail i.on { transform: scaleX(1); background: var(--acid); }
+
+.three-outro {
+  min-height: 60vh;
+  display: grid;
+  place-items: center;
+  padding: 12vh clamp(25px, 7vw, 120px);
+}
+.three-outro p {
+  max-width: 620px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.8;
+  text-align: center;
+}
+.three-outro code { color: var(--acid); font-size: 13px; }
+
+@media (max-width: 800px) {
+  .three-copy {
+    left: 25px;
+    top: auto;
+    bottom: 8vh;
+    width: calc(100vw - 50px);
+    transform: none;
+  }
+  .three-copy h2 { font-size: clamp(38px, 11vw, 56px); }
+  .three-body { font-size: 13px; }
+  .three-rail { display: none; }
+}

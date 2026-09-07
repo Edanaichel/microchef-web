@@ -1,0 +1,56 @@
+{
+  "width": 1024,
+  "height": 1536,
+  "aspect": 0.6666666666666666,
+  "parts": [
+    {
+      "name": "top-bun",
+      "file": "/images/burger/parts/top-bun.webp",
+      "top": 0.047526041666666664,
+      "height": 0.169921875,
+      "center": 0.13248697916666666
+    },
+    {
+      "name": "lettuce",
+      "file": "/images/burger/parts/lettuce.webp",
+      "top": 0.21744791666666666,
+      "height": 0.10611979166666667,
+      "center": 0.2705078125
+    },
+    {
+      "name": "tomato",
+      "file": "/images/burger/parts/tomato.webp",
+      "top": 0.32421875,
+      "height": 0.08658854166666667,
+      "center": 0.3675130208333333
+    },
+    {
+      "name": "pickles",
+      "file": "/images/burger/parts/pickles.webp",
+      "top": 0.4108072916666667,
+      "height": 0.05859375,
+      "center": 0.4401041666666667
+    },
+    {
+      "name": "patty",
+      "file": "/images/burger/parts/patty.webp",
+      "top": 0.4694010416666667,
+      "height": 0.19010416666666666,
+      "center": 0.564453125
+    },
+    {
+      "name": "onions",
+      "file": "/images/burger/parts/onions.webp",
+      "top": 0.6751302083333334,
+      "height": 0.09375,
+      "center": 0.7220052083333334
+    },
+    {
+      "name": "base",
+      "file": "/images/burger/parts/base.webp",
+      "top": 0.76953125,
+      "height": 0.15104166666666666,
+      "center": 0.8450520833333334
+    }
+  ]
+}
