@@ -8,7 +8,6 @@ export type Act = {
   /** Drives the per-act colour grade on the vignette. */
   tone: "gold" | "copper" | "red" | "bone";
   caption?: string;
-  cards?: { key: string; heading: string; note: string }[];
 };
 
 export const acts: Act[] = [
@@ -38,12 +37,9 @@ export const acts: Act[] = [
     label: "The brief",
     title: "Cut. Maintain. Bulk.",
     body: "Choose the goal before you shoot a single ingredient. Everything that follows is engineered to land inside those numbers.",
+    image: "brief",
     tone: "red",
-    cards: [
-      { key: "Cut", heading: "Deficit", note: "High volume, high protein, low noise." },
-      { key: "Maintain", heading: "Even", note: "Hold the line without eating like a monk." },
-      { key: "Bulk", heading: "Surplus", note: "Calorie-dense food you actually want to finish." },
-    ],
+    caption: "Before the photograph",
   },
   {
     id: "reveal",

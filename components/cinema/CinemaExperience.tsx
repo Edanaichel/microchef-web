@@ -5,7 +5,6 @@ import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { acts } from "./acts";
-import { entries } from "./dex";
 import { score } from "./score";
 
 /** Words are wrapped so each one can be masked and pushed up independently. */
@@ -27,7 +26,6 @@ const blur = (name: string) => `/images/cinema/${name}-blur.webp`;
 export default function CinemaExperience() {
   const root = useRef<HTMLDivElement>(null);
   const counter = useRef<HTMLSpanElement>(null);
-  const [chapter, setChapter] = useState(0);
   const [sound, setSound] = useState(false);
 
   useEffect(() => {
@@ -44,7 +42,7 @@ export default function CinemaExperience() {
       if (!root.current) return;
       root.current.classList.remove("is-booting");
       gsap.set(".cin-bar", { clearProps: "height" });
-      gsap.set(".cin-hud, .cin-scroll, .cin-chapter, .cin-progress", { opacity: 1 });
+      gsap.set(".cin-hud, .cin-scroll, .cin-progress", { opacity: 1 });
       lenis.start();
       ScrollTrigger.refresh();
     };
@@ -91,7 +89,7 @@ export default function CinemaExperience() {
           "<0.3"
         )
         .to(
-          ".cin-hud, .cin-scroll, .cin-chapter, .cin-progress",
+          ".cin-hud, .cin-scroll, .cin-progress",
           { opacity: 1, duration: 1, stagger: 0.08, ease: "power2.out" },
           "<0.2"
         );
@@ -100,20 +98,13 @@ export default function CinemaExperience() {
 
       // --- Per-act staging ------------------------------------------------
       gsap.utils.toArray<HTMLElement>(".cin-act").forEach((section) => {
-        const index = Number(section.dataset.index);
         const media = section.querySelector(".cin-act__media");
         const image = section.querySelector(".cin-act__media img");
 
         ScrollTrigger.create({
           trigger: section,
           start: "top 65%",
-          onEnter: () => {
-            if (Number.isFinite(index)) setChapter(index);
-            score.impact(section.dataset.tone === "gold" ? 1 : 0.7);
-          },
-          onEnterBack: () => {
-            if (Number.isFinite(index)) setChapter(index);
-          },
+          onEnter: () => score.impact(section.dataset.tone === "gold" ? 1 : 0.7),
         });
 
         if (reduced) return;
@@ -127,7 +118,7 @@ export default function CinemaExperience() {
             ease: "expo.out",
           })
           .from(
-            section.querySelectorAll(".cin-act__label, .cin-act__body, .cin-card, .cin-slot, .cin-entry"),
+            section.querySelectorAll(".cin-act__label, .cin-act__body, .cin-slot, .cin-dex__line, .cin-themes"),
             { opacity: 0, y: 26, duration: 0.9, stagger: 0.09, ease: "power3.out" },
             0.15
           );
@@ -294,18 +285,6 @@ export default function CinemaExperience() {
               <Title className="cin-act__title" text={act.title} />
               <p className="cin-act__body">{act.body}</p>
 
-              {act.cards && (
-                <div className="cin-cards">
-                  {act.cards.map((card) => (
-                    <article className="cin-card" key={card.key}>
-                      <h3>{card.key}</h3>
-                      <p className="cin-card__heading">{card.heading}</p>
-                      <p className="cin-card__note">{card.note}</p>
-                    </article>
-                  ))}
-                </div>
-              )}
-
               {act.id === "service" && (
                 // Swap this for the real generate-tab screenshot when it lands.
                 <div className="cin-slot">
@@ -358,13 +337,9 @@ export default function CinemaExperience() {
             Every meal you actually make earns something back — new themes, new looks, a reason to
             keep the streak alive. Microchef is a game you can eat.
           </p>
-          <ul className="cin-themes">
-            {["Midnight Oil", "Masterchef", "Original", "Multi-Cultural", "???"].map((theme) => (
-              <li key={theme} data-locked={theme === "???"}>
-                {theme}
-              </li>
-            ))}
-          </ul>
+          <p className="cin-themes">
+            Midnight Oil · Masterchef · Original · Multi-Cultural · ???
+          </p>
         </section>
 
         <section className="cin-act cin-act--still cin-dex" data-tone="gold" id="microdex">
@@ -389,19 +364,7 @@ export default function CinemaExperience() {
               it became, how many times it came back. A living catalog of your kitchen, filled in
               by eating. The blanks are the point.
             </p>
-            <ol className="cin-dex__grid">
-              {entries.map((entry) => (
-                <li
-                  className="cin-entry"
-                  key={entry.no}
-                  data-locked={entry.locked ? "true" : "false"}
-                >
-                  <span className="cin-entry__no">{entry.no}</span>
-                  <strong>{entry.name}</strong>
-                  <em>{entry.note}</em>
-                </li>
-              ))}
-            </ol>
+            <p className="cin-dex__line">041 — Preserved lemon — still waiting</p>
           </div>
         </section>
       </main>
@@ -411,11 +374,6 @@ export default function CinemaExperience() {
         <a href="/privacy">Privacy</a>
       </footer>
 
-      <div className="cin-chapter" aria-hidden>
-        <span>{String(chapter).padStart(2, "0")}</span>
-        <i />
-        <span>{String(acts.length).padStart(2, "0")}</span>
-      </div>
       <div className="cin-progress" aria-hidden>
         <span />
       </div>
