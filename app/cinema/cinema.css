@@ -556,6 +556,10 @@ body:has(.cin)::after { display: none; }
   text-transform: uppercase;
   color: rgba(242, 235, 221, 0.34);
 }
+.cin-foot__links {
+  display: flex;
+  gap: 22px;
+}
 .cin-foot a {
   color: inherit;
   text-decoration: none;

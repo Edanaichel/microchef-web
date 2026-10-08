@@ -102,10 +102,15 @@ export default function PrivacyPage() {
           means you accept the revised policy.
         </p>
 
-        <h2>Contact</h2>
+        <h2>Contact &amp; support</h2>
         <p>
-          Questions about your data can be sent to the operator of Microchef at
-          the company below.
+          For account help, privacy questions, coach issues, or anything else —
+          reach out to support. We read every message.
+        </p>
+        <p>
+          <a className="legal-mail" href="mailto:Support@microchef.app">
+            Support@microchef.app
+          </a>
         </p>
 
         <p className="legal-company">

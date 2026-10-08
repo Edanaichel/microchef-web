@@ -371,7 +371,10 @@ export default function CinemaExperience() {
 
       <footer className="cin-foot">
         <span>© {new Date().getFullYear()} Featherweight Labs LLC</span>
-        <a href="/privacy">Privacy</a>
+        <nav className="cin-foot__links" aria-label="Legal">
+          <a href="mailto:Support@microchef.app">Support</a>
+          <a href="/privacy">Privacy</a>
+        </nav>
       </footer>
 
       <div className="cin-progress" aria-hidden>
